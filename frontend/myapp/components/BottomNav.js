@@ -41,13 +41,17 @@ export default function BottomNav() {
   return (
     <View style={styles.navBar}>
       <NavItem
-        icon={require('../assets/home-2.png')}
+        icon={require('../assets/shop.png')}
         label="ร้านรับซื้อ"
         active={activeIndex === 0}
         onPress={() => handleNavItemPress('/shop')}
       />
       <NavItem
+<<<<<<< HEAD
         icon={require('../assets/Group 132.png')}
+=======
+        icon={require('../assets/location.png')}
+>>>>>>> 33457991cb4f5d49342198f60b9a17bf11871305
         label="ร้านใกล้ฉัน"
         active={activeIndex === 1}
         onPress={() => handleNavItemPress('/nearshops')}
@@ -56,13 +60,22 @@ export default function BottomNav() {
         <Image source={require('../assets/plus.png')} style={styles.bottomIconCenter} />
       </TouchableOpacity>
       <NavItem
+<<<<<<< HEAD
         icon={require('../assets/Clipboard.png')}
         label="ติดตาม"
+=======
+        icon={require('../assets/A.png')}
+        label="ติดตามเรื่อง"
+>>>>>>> 33457991cb4f5d49342198f60b9a17bf11871305
         active={activeIndex === 3}
         onPress={() => handleNavItemPress('/AppealStatusScreen')}
       />
       <NavItem
+<<<<<<< HEAD
         icon={require('../assets/Google forms.png')}
+=======
+        icon={require('../assets/Speaker.png')}
+>>>>>>> 33457991cb4f5d49342198f60b9a17bf11871305
         label="ร้องเรียน"
         active={activeIndex === 4}
         onPress={() => handleNavItemPress('/appeal')}

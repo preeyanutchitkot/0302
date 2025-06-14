@@ -10,7 +10,7 @@ export default function Header() {
       {/* Logo + THANGSISUK */}
       <View style={styles.leftGroup}>
         <Image source={require('../assets/logo2.png')} style={styles.logo} />
-        <Text style={styles.headerText}>THANGSISUK</Text>
+        <Text style={styles.headerText}>SmartBinLink</Text>
       </View>
 
       {/* Location + Logout Icons */}
