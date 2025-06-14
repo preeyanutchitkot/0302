@@ -1,0 +1,29 @@
+ {
+  "project_info": {
+    "project_number": "55288593922",
+    "project_id": "project-scripting-e2427",
+    "storage_bucket": "project-scripting-e2427.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55288593922:android:2872848cfe4d54f665711b",
+        "android_client_info": {
+          "package_name": "com.thangsisuk.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBikM1e4gCSPL9OVNR_lYqDlg1eXpiLC0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
