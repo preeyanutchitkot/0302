@@ -112,13 +112,13 @@ const AppealChatScreen = () => {
       };
       setLocation(coords);
       setMessages(prev => [...prev, { id: UUID.v4(), type: 'user', text: `📍 ตำแหน่งของคุณ: ${fullAddress}` }]);
+      analyzeAndSubmit(coords);
     } catch (err) {
       setMessages(prev => [...prev, { id: UUID.v4(), type: 'bot', text: '❌ เกิดข้อผิดพลาดขณะดึงตำแหน่ง' }]);
     }
-    analyzeAndSubmit();
   };
 
-   const uploadImageToCloudinary = async (uri) => {
+  const uploadImageToCloudinary = async (uri) => {
     const formData = new FormData();
     const fileName = uri.split('/').pop();
     const fileType = fileName.split('.').pop();
@@ -131,49 +131,47 @@ const AppealChatScreen = () => {
   };
 
   const analyzeAndSubmit = async (imageUrlParam = null, locationParam = null) => {
-  setLoading(true);
-  try {
-    const prompt = `หัวข้อ: ${category}\nรายละเอียด: ${detail}\nประเภท: ${category}`;
-    const aiRes = await axios.post('http://192.168.1.62:3000/api/analyze', { prompt });
-    const rawAnalysis = aiRes.data.text || '';
-    const urgencyMatch = rawAnalysis.match(/ระดับความเร่งด่วน[:：]?\s*(ปกติ|ด่วน|เร่งด่วน)/i);
-    const urgency = urgencyMatch ? urgencyMatch[1] : 'ไม่ระบุ';
-    const summary = rawAnalysis.length > 300
-      ? rawAnalysis.substring(0, 150).trim() + '...'
-      : rawAnalysis.trim();
+    setLoading(true);
+    try {
+      const prompt = `หัวข้อ: ${category}\nรายละเอียด: ${detail}\nประเภท: ${category}`;
+      const aiRes = await axios.post('http://192.168.1.62:3000/api/analyze', { prompt });
+      const rawAnalysis = aiRes.data.text || '';
+      const urgencyMatch = rawAnalysis.match(/ระดับความเร่งด่วน[:：]?\s*(ปกติ|ด่วน|เร่งด่วน)/i);
+      const urgency = urgencyMatch ? urgencyMatch[1] : 'ไม่ระบุ';
+      const summary = rawAnalysis.length > 300
+        ? rawAnalysis.substring(0, 150).trim() + '...'
+        : rawAnalysis.trim();
 
-    await addDoc(collection(db, 'appeal'), {
-      title: category,
-      detail,
-      image: imageUrlParam || image,
-      location: locationParam || location,
-      analysis: rawAnalysis,
-      urgency,
-      status: 'รับเรื่องแล้ว',
-      createdAt: serverTimestamp(),
-    });
+      await addDoc(collection(db, 'appeal'), {
+        title: category,
+        detail,
+        image: imageUrlParam || image,
+        location: locationParam || location,
+        analysis: rawAnalysis,
+        urgency,
+        status: 'รับเรื่องแล้ว',
+        createdAt: serverTimestamp(),
+      });
 
-    setMessages(prev => [
-      ...prev,
-      { id: Date.now().toString(), type: 'bot', text: '✅ ขอบคุณที่แจ้งเข้ามาค่ะ ทางเรารับเรื่องแล้วนะคะ' },
-      { id: Date.now().toString(), type: 'bot', text: `📌 สรุปเบื้องต้น: ${summary}` },
-      { id: Date.now().toString(), type: 'bot', text: `🚨 ระดับความเร่งด่วน: ${urgency}` },
-      { id: Date.now().toString(), type: 'bot', text: '🎉 หากมีอะไรเพิ่มเติมสามารถแจ้งได้เลยนะคะ หรือเลือกปัญหาใหม่ด้านล่างได้เลย' }
-    ]);
+      setMessages(prev => [
+        ...prev,
+        { id: Date.now().toString(), type: 'bot', text: '✅ ขอบคุณที่แจ้งเข้ามาค่ะ ทางเรารับเรื่องแล้วนะคะ' },
+        { id: Date.now().toString(), type: 'bot', text: `📌 สรุปเบื้องต้น: ${summary}` },
+        { id: Date.now().toString(), type: 'bot', text: `🚨 ระดับความเร่งด่วน: ${urgency}` },
+        { id: Date.now().toString(), type: 'bot', text: '🎉 หากมีอะไรเพิ่มเติมสามารถแจ้งได้เลยนะคะ หรือเลือกปัญหาใหม่ด้านล่างได้เลย' }
+      ]);
 
-    setTimeout(resetForm, 2000);
-  } catch (err) {
-    Alert.alert('❌ เกิดข้อผิดพลาด', err.message);
-  } finally {
-    setLoading(false);
-  }
-};
+      setTimeout(resetForm, 2000);
+    } catch (err) {
+      Alert.alert('❌ เกิดข้อผิดพลาด', err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.flex}>
-      {/* ✅ Header อยู่คงที่ด้านบน */}
       <Header />
-      
       <ScrollView contentContainerStyle={styles.container} ref={scrollRef} onContentSizeChange={() => scrollRef.current.scrollToEnd({ animated: true })}>
         {messages.map(msg => (
           <View key={msg.id} style={[styles.bubble, msg.type === 'user' ? styles.user : styles.bot]}>
@@ -202,8 +200,6 @@ const AppealChatScreen = () => {
           </View>
         </View>
       )}
-
-      {/* ✅ BottomNav อยู่ล่างสุด */}
       <BottomNav />
     </KeyboardAvoidingView>
   );
