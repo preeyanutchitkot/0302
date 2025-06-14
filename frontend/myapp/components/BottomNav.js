@@ -23,7 +23,7 @@ export default function BottomNav() {
         return 1;
       case '/Post':
         return 2;
-      case '/point':
+      case '/AppealStatusScreen':
         return 3;
       case '/appeal':
         return 4;
@@ -59,7 +59,7 @@ export default function BottomNav() {
         icon={require('../assets/Clipboard.png')}
         label="ติดตาม"
         active={activeIndex === 3}
-        onPress={() => handleNavItemPress('/point')}
+        onPress={() => handleNavItemPress('/AppealStatusScreen')}
       />
       <NavItem
         icon={require('../assets/Google forms.png')}
