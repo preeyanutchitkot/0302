@@ -15,7 +15,7 @@ export default function IndexRedirect() {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo1.png')} style={styles.logo} />
+      <Image source={require('../assets/smartbinlink.png')} style={styles.logo} />
     </View>
   );
 }
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 120,
-    height: 120,
+    width: 300,
+    height: 300,
     resizeMode: 'contain',
   },
 });

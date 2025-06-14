@@ -47,7 +47,7 @@ const AppealStatusScreen = () => {
       <Header />
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.headerBox}>
-          <Text style={styles.agencyName}>THANGSISUK</Text>
+          <Text style={styles.agencyName}>SmartBinLInk</Text>
           <Ionicons name="location-outline" size={20} color="#333" />
         </View>
         <Text style={styles.title}>สถานะคำร้อง</Text>

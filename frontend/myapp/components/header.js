@@ -9,8 +9,8 @@ export default function Header() {
     <View style={styles.header}>
       {/* Logo + THANGSISUK */}
       <View style={styles.leftGroup}>
-        <Image source={require('../assets/logo2.png')} style={styles.logo} />
-        <Text style={styles.headerText}>SmartBinLink</Text>
+       <Image source={require('../assets/smartbinlink.png')} style={styles.logo} />
+        <Text style={styles.headerText}></Text>
       </View>
 
       {/* Location + Logout Icons */}
@@ -23,7 +23,7 @@ export default function Header() {
         </TouchableOpacity>
       </View>
     </View>
-  );
+  ); 
 }
 
 const styles = StyleSheet.create({
@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'space-between',  // ทำให้กลุ่มซ้ายและขวาแยกออกจากกัน
     padding: 10, 
-    backgroundColor: '#B7E305' 
+    backgroundColor: '#e6f9a7' 
   },
   logo: { 
-    width: 40, 
-    height: 40 
+    width: 150, 
+    height: 50 
   },
   headerText: { 
     fontSize: 18, 

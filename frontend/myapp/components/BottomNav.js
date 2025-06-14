@@ -56,13 +56,13 @@ export default function BottomNav() {
         <Image source={require('../assets/plus.png')} style={styles.bottomIconCenter} />
       </TouchableOpacity>
       <NavItem
-        icon={require('../assets/Clipboard.png')}
+        icon={require('../assets/A.png')}
         label="ติดตาม"
         active={activeIndex === 3}
         onPress={() => handleNavItemPress('/point')}
       />
       <NavItem
-        icon={require('../assets/Google forms.png')}
+        icon={require('../assets/Speaker.png')}
         label="ร้องเรียน"
         active={activeIndex === 4}
         onPress={() => handleNavItemPress('/appeal')}

@@ -36,7 +36,7 @@ export default function RegisterScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: '#A3CC01' }}
+      style={{ flex: 1, backgroundColor: '#e6f9a7' }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ImageBackground
@@ -46,7 +46,7 @@ export default function RegisterScreen() {
       >
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <View style={styles.container}>
-            <Image source={require('../assets/logo2.png')} style={styles.logo} />
+            <Image source={require('../assets/smartbinlink.png')} style={styles.logo} />
             <View style={styles.card}>
               <Text style={styles.title}>สมัครสมาชิก</Text>
 
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 150,
+    width: 250,
     height: 150,
     marginBottom: 10,
   },

@@ -57,7 +57,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#A3CC01' }}>
+    <View style={{ flex: 1, backgroundColor: '#e6f9a7' }}>
       <ImageBackground
         source={require('../assets/bg.png')}
         style={styles.background}
@@ -65,7 +65,7 @@ const LoginScreen = () => {
       >
         <ScrollView contentContainerStyle={styles.scroll}>
           <View style={styles.container}>
-            <Image source={require('../assets/logo2.png')} style={styles.logo} resizeMode="contain" />
+            <Image source={require('../assets/smartbinlink.png')} style={styles.logo} resizeMode="contain" />
   
             <View style={styles.card}>
               <Text style={styles.title}>เข้าสู่ระบบ</Text>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 150,
+    width: 250,
     height: 150,
     marginBottom: 10,
   },
