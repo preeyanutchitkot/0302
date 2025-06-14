@@ -35,7 +35,9 @@ export default function RootLayout() {
       <Stack.Screen name="ShopProfileScreen" options={{ headerShown: false }} />
       <Stack.Screen name="MyShopScreen" options={{ headerShown: false }} />
        <Stack.Screen name="index" options={{ headerShown: false }} />
+       <Stack.Screen name="point" options={{ headerShown: false }} />
         <Stack.Screen name="nearshops" options={{ headerShown: false }} />
+        <Stack.Screen name="appeal" options={{ headerShown: false }} />
     </Stack>
   );
 }

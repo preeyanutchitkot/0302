@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-const AppealStatusScreen = () => {
-};
-
-export default AppealStatusScreen;
+import AppealStatusScreen from '../screens/point';
+export default function AppealStatusRount() {
+  return <AppealStatusScreen />;//
+}
