@@ -41,14 +41,14 @@ export default function BottomNav() {
   return (
     <View style={styles.navBar}>
       <NavItem
-        icon={require('../assets/home-2.png')}
+        icon={require('../assets/shop.png')}
         label="ร้านรับซื้อ"
         active={activeIndex === 0}
         onPress={() => handleNavItemPress('/shop')}
       />
       <NavItem
-        icon={require('../assets/shop.png')}
-        label="จุดทิ้งขยะ"
+        icon={require('../assets/location.png')}
+        label="ร้านใกล้ฉัน"
         active={activeIndex === 1}
         onPress={() => handleNavItemPress('/nearshops')}
       />
@@ -56,13 +56,13 @@ export default function BottomNav() {
         <Image source={require('../assets/plus.png')} style={styles.bottomIconCenter} />
       </TouchableOpacity>
       <NavItem
-        icon={require('../assets/location.png')}
-        label="แต้มสะสม"
+        icon={require('../assets/A.png')}
+        label="ติดตามเรื่อง"
         active={activeIndex === 3}
         onPress={() => handleNavItemPress('/point')}
       />
       <NavItem
-        icon={require('../assets/test-account.png')}
+        icon={require('../assets/Speaker.png')}
         label="ร้องเรียน"
         active={activeIndex === 4}
         onPress={() => handleNavItemPress('/appeal')}
